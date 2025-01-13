@@ -4,6 +4,8 @@ import reflex as rx
 
 from rxconfig import config
 
+from .env import init_env
+
 from .register import register
 from .login import login
 from .index import index
@@ -13,6 +15,7 @@ class State(rx.State):
 
     ...
 
+init_env()
 app = rx.App()
 app.add_page(index)
 app.add_page(login)

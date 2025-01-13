@@ -1,4 +1,5 @@
 import reflex as rx
+from .appwrite import register
 
 class FormState(rx.State):
     form_data: dict = {}
@@ -7,7 +8,7 @@ class FormState(rx.State):
     def handle_submit(self, form_data:dict):
         """Handle the form submit."""
         self.form_data = form_data
-        print(self.form_data)
+        register(self.form_data)
 
 def register() -> rx.Component:
         return rx.container(

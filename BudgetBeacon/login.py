@@ -1,4 +1,5 @@
 import reflex as rx
+from .appwrite import login
 
 class FormState(rx.State):
     form_data: dict = {}
@@ -7,7 +8,7 @@ class FormState(rx.State):
     def handle_submit(self, form_data:dict):
         """Handle the form submit."""
         self.form_data = form_data
-        print(self.form_data)
+        login(self.form_data)
 
 def login() -> rx.Component:
     return rx.container(
@@ -27,10 +28,9 @@ def login() -> rx.Component:
                         name="password",
                         id="password"
                 ),
-                rx.link(
-                spacing="5",
-                justify="center",
-                min_height="85vh",
+                rx.button(
+                    "Submit",
+                    type="submit"
                 ),
             on_submit=FormState.handle_submit,
             ),
