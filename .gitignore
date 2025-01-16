@@ -1,7 +1,0 @@
-__pycache__/
-*.db
-*.py[cod]
-.web
-assets/external/
-
-BudgetBeacon/env.py
